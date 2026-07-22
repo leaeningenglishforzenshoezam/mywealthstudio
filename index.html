@@ -1,0 +1,2752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0f172a"
+  >
+
+  <title>My Wealth Studio</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside
+    class="sidebar"
+    id="sidebar"
+  >
+
+    <div class="brand">
+
+      <div class="brand-mark">
+        M
+      </div>
+
+      <div>
+        <strong>
+          My Wealth Studio
+        </strong>
+
+        <small>
+          Personal Wealth OS
+        </small>
+      </div>
+
+    </div>
+
+    <nav class="nav-list">
+
+      <button
+        class="nav-button active"
+        data-page="home"
+      >
+        <span>⌂</span>
+        Home
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="monthly"
+      >
+        <span>✎</span>
+        Monthly
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="timeline"
+      >
+        <span>◷</span>
+        Timeline
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="plan"
+      >
+        <span>⌂</span>
+        Plan
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="simulation"
+      >
+        <span>↗</span>
+        Simulation
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="buckets"
+      >
+        <span>◎</span>
+        Buckets
+      </button>
+
+      <button
+        class="nav-button"
+        data-page="settings"
+      >
+        <span>⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <p>
+        データ保存先
+      </p>
+
+      <strong>
+        このブラウザ
+      </strong>
+
+      <span class="save-indicator">
+        ● 保存機能有効
+      </span>
+
+    </div>
+
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+      >
+        ☰
+      </button>
+
+      <div class="page-heading">
+
+        <p
+          class="eyebrow"
+          id="pageEyebrow"
+        >
+          OVERVIEW
+        </p>
+
+        <h1 id="pageTitle">
+          Home
+        </h1>
+
+      </div>
+
+      <label class="global-month-box">
+
+        <span>
+          表示月
+        </span>
+
+        <select id="globalMonth"></select>
+
+      </label>
+
+    </header>
+
+    <!-- Home -->
+
+    <section
+      class="page active"
+      id="page-home"
+    >
+
+      <div
+        class="empty-notice hidden"
+        id="homeEmptyNotice"
+      >
+        この月のデータはまだ登録されていません。
+        Monthlyから入力してください。
+      </div>
+
+      <section class="hero-card">
+
+        <div>
+
+          <p
+            class="hero-label"
+            id="heroMonthLabel"
+          >
+            2026年7月の純資産
+          </p>
+
+          <div class="hero-value-row">
+
+            <h2 id="homeNetWorth">
+              ¥0
+            </h2>
+
+            <span
+              class="change-badge neutral"
+              id="homeMonthlyChange"
+            >
+              前月データなし
+            </span>
+
+          </div>
+
+          <p class="hero-subtext">
+            現金・投資・負債を反映した現在地です。
+          </p>
+
+        </div>
+
+        <div class="goal-area">
+
+          <div class="goal-heading">
+
+            <span>
+              目標金融資産まで
+            </span>
+
+            <strong id="homeGoalPercent">
+              0.0%
+            </strong>
+
+          </div>
+
+          <div class="progress-track dark">
+
+            <div
+              class="progress-fill"
+              id="homeGoalBar"
+              style="width:0%"
+            ></div>
+
+          </div>
+
+          <p id="homeGoalRemaining">
+            あと ¥0
+          </p>
+
+        </div>
+
+      </section>
+
+      <section class="stat-grid">
+
+        <article class="card stat-card">
+
+          <div class="stat-heading">
+            <span>現金</span>
+            <span class="stat-icon">¥</span>
+          </div>
+
+          <strong id="homeCash">
+            ¥0
+          </strong>
+
+          <small id="homeEmergencyText">
+            生活防衛資金 0%
+          </small>
+
+        </article>
+
+        <article class="card stat-card">
+
+          <div class="stat-heading">
+            <span>投資元本</span>
+            <span class="stat-icon">元</span>
+          </div>
+
+          <strong id="homeInvestmentPrincipal">
+            ¥0
+          </strong>
+
+          <small>
+            これまでの入金額
+          </small>
+
+        </article>
+
+        <article class="card stat-card">
+
+          <div class="stat-heading">
+            <span>投資評価額</span>
+            <span class="stat-icon">↗</span>
+          </div>
+
+          <strong id="homeInvestmentValue">
+            ¥0
+          </strong>
+
+          <small id="homeInvestmentProfit">
+            含み損益 ¥0
+          </small>
+
+        </article>
+
+        <article class="card stat-card">
+
+          <div class="stat-heading">
+            <span>負債合計</span>
+            <span class="stat-icon">−</span>
+          </div>
+
+          <strong id="homeDebt">
+            ¥0
+          </strong>
+
+          <small>
+            住宅ローン・その他借入
+          </small>
+
+        </article>
+
+      </section>
+
+      <section class="dashboard-grid">
+
+        <article class="card">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="eyebrow">
+                TREND
+              </p>
+
+              <h3>
+                純資産の推移
+              </h3>
+            </div>
+
+            <span
+              class="data-count"
+              id="chartDataCount"
+            >
+              0か月
+            </span>
+
+          </div>
+
+          <div
+            class="chart-area"
+            id="chartArea"
+          >
+
+            <div
+              class="chart-empty"
+              id="chartEmpty"
+            >
+              2か月以上保存するとグラフが表示されます。
+            </div>
+
+            <svg
+              id="netWorthChart"
+              viewBox="0 0 800 280"
+              preserveAspectRatio="none"
+              aria-label="純資産推移グラフ"
+            >
+
+              <g id="chartGrid"></g>
+
+              <polygon
+                id="chartAreaPolygon"
+                points=""
+              ></polygon>
+
+              <polyline
+                id="chartLine"
+                points=""
+              ></polyline>
+
+              <g id="chartPoints"></g>
+
+            </svg>
+
+            <div
+              class="chart-labels"
+              id="chartLabels"
+            ></div>
+
+          </div>
+
+        </article>
+
+        <article class="card">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="eyebrow">
+                MONTHLY SUMMARY
+              </p>
+
+              <h3>
+                今月のサマリー
+              </h3>
+            </div>
+
+          </div>
+
+          <div class="summary-list">
+
+            <div class="summary-row">
+
+              <span>
+                収入合計
+              </span>
+
+              <strong id="homeIncome">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div class="summary-row">
+
+              <span>
+                イベント支出
+              </span>
+
+              <strong id="homeEventExpense">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div class="summary-row">
+
+              <span>
+                生活防衛資金目標
+              </span>
+
+              <strong id="homeEmergencyTarget">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div class="summary-row">
+
+              <span>
+                投資損益率
+              </span>
+
+              <strong id="homeProfitRate">
+                0.0%
+              </strong>
+
+            </div>
+
+          </div>
+
+          <button
+            class="primary-button full-width"
+            type="button"
+            data-go="monthly"
+          >
+            Monthly Checkを開く
+          </button>
+
+        </article>
+
+      </section>
+
+      <section class="home-bottom-grid">
+
+        <article class="card">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="eyebrow">
+                NOTE
+              </p>
+
+              <h3>
+                今月のメモ
+              </h3>
+            </div>
+
+          </div>
+
+          <p
+            class="home-note"
+            id="homeNote"
+          >
+            メモはありません。
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="eyebrow">
+                NEXT STEP
+              </p>
+
+              <h3>
+                今後追加する機能
+              </h3>
+            </div>
+
+          </div>
+
+          <ul class="next-step-list">
+            <li>イベントの追加・編集</li>
+            <li>住宅購入資金計画</li>
+            <li>住宅ローン返済計算</li>
+            <li>将来キャッシュフロー</li>
+          </ul>
+
+        </article>
+
+      </section>
+
+    </section>
+
+    <!-- Monthly -->
+
+    <section
+      class="page"
+      id="page-monthly"
+    >
+
+      <div class="page-intro">
+
+        <div>
+
+          <p class="eyebrow">
+            MONTHLY CHECK
+          </p>
+
+          <h2>
+            毎月の資産を記録
+          </h2>
+
+          <p>
+            毎月末の残高と評価額を入力します。
+          </p>
+
+        </div>
+
+        <div
+          class="save-status"
+          id="monthlySaveStatus"
+        >
+          保存済み
+        </div>
+
+      </div>
+
+      <div class="monthly-layout">
+
+        <form
+          class="card monthly-form"
+          id="monthlyForm"
+        >
+
+          <section class="form-section">
+
+            <div class="form-section-heading">
+
+              <h3>
+                対象月
+              </h3>
+
+              <div class="month-actions">
+
+                <button
+                  class="secondary-button"
+                  type="button"
+                  id="copyPreviousButton"
+                >
+                  前月からコピー
+                </button>
+
+                <button
+                  class="danger-button"
+                  type="button"
+                  id="deleteMonthButton"
+                >
+                  この月を削除
+                </button>
+
+              </div>
+
+            </div>
+
+            <label class="field">
+
+              <span>
+                年月
+              </span>
+
+              <input
+                type="month"
+                id="monthlyMonth"
+                required
+              >
+
+            </label>
+
+          </section>
+
+          <section class="form-section">
+
+            <h3>
+              収入
+            </h3>
+
+            <div class="form-grid three-columns">
+
+              <label class="field">
+
+                <span>
+                  本人手取り
+                </span>
+
+                <input
+                  type="number"
+                  id="incomeMe"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+              <label class="field">
+
+                <span>
+                  配偶者手取り
+                </span>
+
+                <input
+                  type="number"
+                  id="incomeSpouse"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+              <label class="field">
+
+                <span>
+                  賞与・その他収入
+                </span>
+
+                <input
+                  type="number"
+                  id="incomeOther"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+            </div>
+
+          </section>
+
+          <section class="form-section">
+
+            <h3>
+              現金
+            </h3>
+
+            <div class="form-grid">
+
+              <label class="field">
+
+                <span>
+                  現金・普通預金
+                </span>
+
+                <input
+                  type="number"
+                  id="cash"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+            </div>
+
+          </section>
+
+          <section class="form-section">
+
+            <div class="form-section-heading">
+
+              <div>
+
+                <h3>
+                  投資資産
+                </h3>
+
+                <p>
+                  元本と現在の評価額を分けて入力します。
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="investment-table">
+
+              <div class="investment-header">
+                <span>口座</span>
+                <span>元本</span>
+                <span>評価額</span>
+                <span>損益</span>
+              </div>
+
+              <div class="investment-row">
+
+                <strong>
+                  新NISA
+                </strong>
+
+                <input
+                  type="number"
+                  id="newNisaPrincipal"
+                  min="0"
+                  step="1000"
+                >
+
+                <input
+                  type="number"
+                  id="newNisaValue"
+                  min="0"
+                  step="1000"
+                >
+
+                <span id="newNisaProfit">
+                  ¥0
+                </span>
+
+              </div>
+
+              <div class="investment-row">
+
+                <strong>
+                  旧NISA
+                </strong>
+
+                <input
+                  type="number"
+                  id="oldNisaPrincipal"
+                  min="0"
+                  step="1000"
+                >
+
+                <input
+                  type="number"
+                  id="oldNisaValue"
+                  min="0"
+                  step="1000"
+                >
+
+                <span id="oldNisaProfit">
+                  ¥0
+                </span>
+
+              </div>
+
+              <div class="investment-row">
+
+                <strong>
+                  iDeCo
+                </strong>
+
+                <input
+                  type="number"
+                  id="idecoPrincipal"
+                  min="0"
+                  step="1000"
+                >
+
+                <input
+                  type="number"
+                  id="idecoValue"
+                  min="0"
+                  step="1000"
+                >
+
+                <span id="idecoProfit">
+                  ¥0
+                </span>
+
+              </div>
+
+              <div class="investment-row">
+
+                <strong>
+                  特定口座
+                </strong>
+
+                <input
+                  type="number"
+                  id="taxablePrincipal"
+                  min="0"
+                  step="1000"
+                >
+
+                <input
+                  type="number"
+                  id="taxableValue"
+                  min="0"
+                  step="1000"
+                >
+
+                <span id="taxableProfit">
+                  ¥0
+                </span>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="form-section">
+
+            <h3>
+              負債
+            </h3>
+
+            <div class="form-grid">
+
+              <label class="field">
+
+                <span>
+                  住宅ローン残高
+                </span>
+
+                <input
+                  type="number"
+                  id="mortgageBalance"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+              <label class="field">
+
+                <span>
+                  その他の借入残高
+                </span>
+
+                <input
+                  type="number"
+                  id="otherDebt"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+            </div>
+
+          </section>
+
+          <section class="form-section">
+
+            <h3>
+              その他
+            </h3>
+
+            <div class="form-grid">
+
+              <label class="field">
+
+                <span>
+                  イベント支出
+                </span>
+
+                <input
+                  type="number"
+                  id="eventExpense"
+                  min="0"
+                  step="1000"
+                >
+
+              </label>
+
+            </div>
+
+            <label class="field note-field">
+
+              <span>
+                今月のメモ
+              </span>
+
+              <textarea
+                id="monthlyNote"
+                rows="4"
+                placeholder="例：車検代を支払った。NISAを5万円追加した。"
+              ></textarea>
+
+            </label>
+
+          </section>
+
+          <section class="monthly-calculation">
+
+            <div>
+
+              <span>
+                投資元本
+              </span>
+
+              <strong id="formInvestmentPrincipal">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div>
+
+              <span>
+                投資評価額
+              </span>
+
+              <strong id="formInvestmentValue">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div>
+
+              <span>
+                含み損益
+              </span>
+
+              <strong id="formInvestmentProfit">
+                ¥0
+              </strong>
+
+            </div>
+
+            <div>
+
+              <span>
+                純資産
+              </span>
+
+              <strong id="formNetWorth">
+                ¥0
+              </strong>
+
+            </div>
+
+          </section>
+
+          <div
+            class="validation-message hidden"
+            id="validationMessage"
+          ></div>
+
+          <div class="form-actions">
+
+            <button
+              class="secondary-button"
+              type="button"
+              id="restoreButton"
+            >
+              保存済みに戻す
+            </button>
+
+            <button
+              class="primary-button"
+              type="submit"
+            >
+              この月を保存
+            </button>
+
+          </div>
+
+        </form>
+
+        <aside class="card saved-months-card">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="eyebrow">
+                HISTORY
+              </p>
+
+              <h3>
+                保存済みの月
+              </h3>
+
+            </div>
+
+            <span
+              class="data-count"
+              id="savedMonthCount"
+            >
+              0件
+            </span>
+
+          </div>
+
+          <div
+            class="saved-month-list"
+            id="savedMonthList"
+          ></div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+    <!-- Timeline -->
+
+<section
+  class="page"
+  id="page-timeline"
+>
+
+  <div class="page-intro">
+
+    <div>
+
+      <p class="eyebrow">
+        LIFE EVENTS
+      </p>
+
+      <h2>
+        ライフイベント管理
+      </h2>
+
+      <p>
+        将来の収入・支出・投資額に影響するイベントを登録します。
+      </p>
+
+    </div>
+
+    <button
+      class="primary-button"
+      type="button"
+      id="newEventButton"
+    >
+      ＋ イベントを追加
+    </button>
+
+  </div>
+
+  <section class="event-summary-grid">
+
+    <article class="card event-summary-card">
+
+      <span>
+        登録イベント
+      </span>
+
+      <strong id="eventTotalCount">
+        0件
+      </strong>
+
+    </article>
+
+    <article class="card event-summary-card">
+
+      <span>
+        シミュレーション対象
+      </span>
+
+      <strong id="eventSimulationCount">
+        0件
+      </strong>
+
+    </article>
+
+    <article class="card event-summary-card">
+
+      <span>
+        一時支出の合計
+      </span>
+
+      <strong id="eventExpenseTotal">
+        ¥0
+      </strong>
+
+    </article>
+
+    <article class="card event-summary-card">
+
+      <span>
+        一時収入の合計
+      </span>
+
+      <strong id="eventIncomeTotal">
+        ¥0
+      </strong>
+
+    </article>
+
+  </section>
+
+  <div class="timeline-toolbar card">
+
+    <label class="timeline-search">
+
+      <span>
+        検索
+      </span>
+
+      <input
+        type="search"
+        id="eventSearchInput"
+        placeholder="イベント名やメモを検索"
+      >
+
+    </label>
+
+    <label class="timeline-filter">
+
+      <span>
+        カテゴリー
+      </span>
+
+      <select id="eventCategoryFilter">
+
+        <option value="all">
+          すべて
+        </option>
+
+        <option value="housing">
+          住宅
+        </option>
+
+        <option value="childcare">
+          出産・育児
+        </option>
+
+        <option value="education">
+          教育
+        </option>
+
+        <option value="car">
+          車
+        </option>
+
+        <option value="travel">
+          旅行
+        </option>
+
+        <option value="work">
+          仕事・収入
+        </option>
+
+        <option value="care">
+          介護
+        </option>
+
+        <option value="repair">
+          住宅修繕
+        </option>
+
+        <option value="furniture">
+          家具・家電
+        </option>
+
+        <option value="other">
+          その他
+        </option>
+
+      </select>
+
+    </label>
+
+    <label class="timeline-filter">
+
+      <span>
+        状態
+      </span>
+
+      <select id="eventStatusFilter">
+
+        <option value="all">
+          すべて
+        </option>
+
+        <option value="enabled">
+          有効
+        </option>
+
+        <option value="disabled">
+          無効
+        </option>
+
+        <option value="simulation">
+          シミュレーション対象
+        </option>
+
+      </select>
+
+    </label>
+
+  </div>
+
+  <div class="timeline-layout">
+
+    <section class="card event-list-card">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            TIMELINE
+          </p>
+
+          <h3>
+            イベント一覧
+          </h3>
+
+        </div>
+
+        <span
+          class="data-count"
+          id="filteredEventCount"
+        >
+          0件
+        </span>
+
+      </div>
+
+      <div
+        class="event-list"
+        id="eventList"
+      ></div>
+
+    </section>
+
+    <aside
+      class="card event-editor-card"
+      id="eventEditorCard"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            EVENT EDITOR
+          </p>
+
+          <h3 id="eventFormHeading">
+            新しいイベント
+          </h3>
+
+        </div>
+
+        <button
+          class="icon-button"
+          type="button"
+          id="closeEventEditorButton"
+          aria-label="編集画面を閉じる"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <form id="eventForm">
+
+        <input
+          type="hidden"
+          id="eventId"
+        >
+
+        <div class="event-form-grid">
+
+          <label class="field event-title-field">
+
+            <span>
+              イベント名
+            </span>
+
+            <input
+              type="text"
+              id="eventTitle"
+              maxlength="80"
+              placeholder="例：第一子の誕生"
+              required
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              カテゴリー
+            </span>
+
+            <select
+              id="eventCategory"
+              required
+            >
+
+              <option value="housing">
+                住宅
+              </option>
+
+              <option value="childcare">
+                出産・育児
+              </option>
+
+              <option value="education">
+                教育
+              </option>
+
+              <option value="car">
+                車
+              </option>
+
+              <option value="travel">
+                旅行
+              </option>
+
+              <option value="work">
+                仕事・収入
+              </option>
+
+              <option value="care">
+                介護
+              </option>
+
+              <option value="repair">
+                住宅修繕
+              </option>
+
+              <option value="furniture">
+                家具・家電
+              </option>
+
+              <option value="other">
+                その他
+              </option>
+
+            </select>
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              開始年月
+            </span>
+
+            <input
+              type="month"
+              id="eventStartMonth"
+              required
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              終了年月
+            </span>
+
+            <input
+              type="month"
+              id="eventEndMonth"
+            >
+
+            <small class="field-help">
+              毎月の変化が続く最終月です。単発イベントは空欄でも構いません。
+            </small>
+
+          </label>
+
+        </div>
+
+        <section class="event-money-section">
+
+          <div class="event-section-heading">
+
+            <div>
+
+              <h4>
+                イベント発生時の金額
+              </h4>
+
+              <p>
+                開始月に一度だけ発生する収入・支出です。
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="event-form-grid">
+
+            <label class="field">
+
+              <span>
+                一時収入
+              </span>
+
+              <input
+                type="number"
+                id="eventOneTimeIncome"
+                min="0"
+                step="1000"
+                placeholder="0"
+              >
+
+            </label>
+
+            <label class="field">
+
+              <span>
+                一時支出
+              </span>
+
+              <input
+                type="number"
+                id="eventOneTimeExpense"
+                min="0"
+                step="1000"
+                placeholder="0"
+              >
+
+            </label>
+
+          </div>
+
+        </section>
+
+        <section class="event-money-section">
+
+          <div class="event-section-heading">
+
+            <div>
+
+              <h4>
+                毎月の変化
+              </h4>
+
+              <p>
+                開始月から終了月までの月々の変化を入力します。
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="event-form-grid three-event-columns">
+
+            <label class="field">
+
+              <span>
+                毎月の収入変化
+              </span>
+
+              <input
+                type="number"
+                id="eventMonthlyIncomeChange"
+                step="1000"
+                placeholder="例：-180000"
+              >
+
+              <small class="field-help">
+                収入が減る場合はマイナスで入力します。
+              </small>
+
+            </label>
+
+            <label class="field">
+
+              <span>
+                毎月の支出変化
+              </span>
+
+              <input
+                type="number"
+                id="eventMonthlyExpenseChange"
+                step="1000"
+                placeholder="例：20000"
+              >
+
+              <small class="field-help">
+                支出が減る場合はマイナスで入力します。
+              </small>
+
+            </label>
+
+            <label class="field">
+
+              <span>
+                毎月の投資額変化
+              </span>
+
+              <input
+                type="number"
+                id="eventMonthlyInvestmentChange"
+                step="1000"
+                placeholder="例：-50000"
+              >
+
+              <small class="field-help">
+                積立額を減らす場合はマイナスで入力します。
+              </small>
+
+            </label>
+
+          </div>
+
+        </section>
+
+        <section class="event-options">
+
+          <label class="toggle-row">
+
+            <div>
+
+              <strong>
+                イベントを有効にする
+              </strong>
+
+              <small>
+                無効にすると一覧には残りますが、計算には使用しません。
+              </small>
+
+            </div>
+
+            <input
+              type="checkbox"
+              id="eventEnabled"
+              checked
+            >
+
+          </label>
+
+          <label class="toggle-row">
+
+            <div>
+
+              <strong>
+                将来シミュレーションに反映する
+              </strong>
+
+              <small>
+                v0.5以降の将来計算で使用します。
+              </small>
+
+            </div>
+
+            <input
+              type="checkbox"
+              id="eventIncludeInSimulation"
+              checked
+            >
+
+          </label>
+
+        </section>
+
+        <label class="field event-note-field">
+
+          <span>
+            メモ
+          </span>
+
+          <textarea
+            id="eventNote"
+            rows="4"
+            maxlength="500"
+            placeholder="例：配偶者の育休を2年間で想定。"
+          ></textarea>
+
+        </label>
+
+        <div
+          class="validation-message hidden"
+          id="eventValidationMessage"
+        ></div>
+
+        <div class="event-form-actions">
+
+          <button
+            class="danger-button hidden"
+            type="button"
+            id="deleteEventButton"
+          >
+            削除
+          </button>
+
+          <div class="event-form-actions-right">
+
+            <button
+              class="secondary-button hidden"
+              type="button"
+              id="duplicateEventButton"
+            >
+              複製
+            </button>
+
+            <button
+              class="secondary-button"
+              type="button"
+              id="cancelEventButton"
+            >
+              入力をクリア
+            </button>
+
+            <button
+              class="primary-button"
+              type="submit"
+            >
+              イベントを保存
+            </button>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </aside>
+
+  </div>
+
+</section>
+    <!-- Plan -->
+
+<section
+  class="page"
+  id="page-plan"
+>
+
+  <div class="page-intro">
+
+    <div>
+
+      <p class="eyebrow">
+        HOUSING PLAN
+      </p>
+
+      <h2>
+        住宅購入・住宅ローン計画
+      </h2>
+
+      <p>
+        住宅の総予算、自己資金、借入額、返済負担を確認します。
+      </p>
+
+    </div>
+
+    <button
+      class="primary-button"
+      type="button"
+      id="newHousingPlanButton"
+    >
+      ＋ 新しい住宅プラン
+    </button>
+
+  </div>
+
+  <section class="housing-summary-grid">
+
+    <article class="card housing-summary-card">
+
+      <span>
+        住宅総額
+      </span>
+
+      <strong id="housingSummaryTotalCost">
+        ¥0
+      </strong>
+
+    </article>
+
+    <article class="card housing-summary-card">
+
+      <span>
+        必要借入額
+      </span>
+
+      <strong id="housingSummaryLoanAmount">
+        ¥0
+      </strong>
+
+    </article>
+
+    <article class="card housing-summary-card">
+
+      <span>
+        毎月返済額
+      </span>
+
+      <strong id="housingSummaryMonthlyPayment">
+        ¥0
+      </strong>
+
+    </article>
+
+    <article class="card housing-summary-card">
+
+      <span>
+        65歳時点の残高
+      </span>
+
+      <strong id="housingSummaryBalanceAt65">
+        ¥0
+      </strong>
+
+    </article>
+
+  </section>
+
+  <div class="housing-layout">
+
+    <aside class="card housing-plan-list-card">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            SAVED PLANS
+          </p>
+
+          <h3>
+            保存済みプラン
+          </h3>
+
+        </div>
+
+        <span
+          class="data-count"
+          id="housingPlanCount"
+        >
+          0件
+        </span>
+
+      </div>
+
+      <div
+        class="housing-plan-list"
+        id="housingPlanList"
+      ></div>
+
+    </aside>
+
+    <form
+      class="card housing-form"
+      id="housingPlanForm"
+    >
+
+      <input
+        type="hidden"
+        id="housingPlanId"
+      >
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            PLAN EDITOR
+          </p>
+
+          <h3 id="housingPlanFormHeading">
+            新しい住宅プラン
+          </h3>
+
+        </div>
+
+      </div>
+
+      <section class="housing-form-section">
+
+        <h4>
+          基本情報
+        </h4>
+
+        <div class="housing-form-grid">
+
+          <label class="field housing-plan-name-field">
+
+            <span>
+              プラン名
+            </span>
+
+            <input
+              type="text"
+              id="housingPlanName"
+              maxlength="80"
+              placeholder="例：5,500万円案"
+              required
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              購入予定年月
+            </span>
+
+            <input
+              type="month"
+              id="housingPurchaseMonth"
+              required
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              主債務者の生年月
+            </span>
+
+            <input
+              type="month"
+              id="housingBorrowerBirthMonth"
+              required
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              残高確認年齢
+            </span>
+
+            <input
+              type="number"
+              id="housingBalanceCheckAge"
+              min="30"
+              max="100"
+              step="1"
+              value="65"
+            >
+
+          </label>
+
+        </div>
+
+      </section>
+
+      <section class="housing-form-section">
+
+        <div class="housing-section-heading">
+
+          <div>
+
+            <h4>
+              住宅購入費用
+            </h4>
+
+            <p>
+              住宅取得時に必要となる費用を項目ごとに入力します。
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="housing-form-grid three-housing-columns">
+
+          <label class="field">
+
+            <span>
+              土地価格
+            </span>
+
+            <input
+              type="number"
+              id="housingLandCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              建物価格
+            </span>
+
+            <input
+              type="number"
+              id="housingBuildingCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              外構費
+            </span>
+
+            <input
+              type="number"
+              id="housingExteriorCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              諸費用
+            </span>
+
+            <input
+              type="number"
+              id="housingClosingCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              家具・家電
+            </span>
+
+            <input
+              type="number"
+              id="housingFurnitureCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              太陽光・追加設備
+            </span>
+
+            <input
+              type="number"
+              id="housingEquipmentCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              その他費用
+            </span>
+
+            <input
+              type="number"
+              id="housingOtherCost"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+        </div>
+
+      </section>
+
+      <section class="housing-form-section">
+
+        <div class="housing-section-heading">
+
+          <div>
+
+            <h4>
+              資金計画
+            </h4>
+
+            <p>
+              自己資金や支援金を差し引き、必要借入額を計算します。
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="housing-form-grid three-housing-columns">
+
+          <label class="field">
+
+            <span>
+              頭金
+            </span>
+
+            <input
+              type="number"
+              id="housingDownPayment"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              親族からの支援
+            </span>
+
+            <input
+              type="number"
+              id="housingFamilySupport"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              補助金・給付金
+            </span>
+
+            <input
+              type="number"
+              id="housingSubsidy"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              その他の自己資金
+            </span>
+
+            <input
+              type="number"
+              id="housingOtherOwnFunds"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              購入直前の現金残高
+            </span>
+
+            <input
+              type="number"
+              id="housingCashBeforePurchase"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              最低限残したい現金
+            </span>
+
+            <input
+              type="number"
+              id="housingMinimumCashReserve"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+        </div>
+
+        <label class="toggle-row housing-auto-loan-row">
+
+          <div>
+
+            <strong>
+              借入額を自動計算する
+            </strong>
+
+            <small>
+              住宅総額から自己資金・支援金・補助金を差し引きます。
+            </small>
+
+          </div>
+
+          <input
+            type="checkbox"
+            id="housingAutoLoanAmount"
+            checked
+          >
+
+        </label>
+
+        <div class="housing-form-grid">
+
+          <label class="field">
+
+            <span>
+              住宅ローン借入額
+            </span>
+
+            <input
+              type="number"
+              id="housingLoanAmount"
+              min="0"
+              step="10000"
+              placeholder="0"
+            >
+
+          </label>
+
+        </div>
+
+      </section>
+
+      <section class="housing-form-section">
+
+        <div class="housing-section-heading">
+
+          <div>
+
+            <h4>
+              住宅ローン条件
+            </h4>
+
+            <p>
+              元利均等返済・毎月払いとして計算します。
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="housing-form-grid three-housing-columns">
+
+          <label class="field">
+
+            <span>
+              年利
+            </span>
+
+            <div class="input-with-unit">
+
+              <input
+                type="number"
+                id="housingInterestRate"
+                min="0"
+                max="20"
+                step="0.01"
+                placeholder="1.00"
+              >
+
+              <span>
+                %
+              </span>
+
+            </div>
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              返済期間
+            </span>
+
+            <div class="input-with-unit">
+
+              <input
+                type="number"
+                id="housingLoanTermYears"
+                min="1"
+                max="50"
+                step="1"
+                placeholder="50"
+              >
+
+              <span>
+                年
+              </span>
+
+            </div>
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              ボーナス返済額
+            </span>
+
+            <input
+              type="number"
+              id="housingBonusPayment"
+              min="0"
+              step="1000"
+              placeholder="0"
+            >
+
+            <small class="field-help">
+              年2回、1回あたりの金額です。
+            </small>
+
+          </label>
+
+          <label class="field">
+
+            <span>
+              金利上昇後の想定年利
+            </span>
+
+            <div class="input-with-unit">
+
+              <input
+                type="number"
+                id="housingStressInterestRate"
+                min="0"
+                max="20"
+                step="0.01"
+                placeholder="2.00"
+              >
+
+              <span>
+                %
+              </span>
+
+            </div>
+
+          </label>
+
+        </div>
+
+      </section>
+
+      <section class="housing-result-section">
+
+        <div class="housing-result-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              CALCULATION
+            </p>
+
+            <h4>
+              計算結果
+            </h4>
+
+          </div>
+
+          <span
+            class="housing-judgement neutral"
+            id="housingCashJudgement"
+          >
+            資金計画を入力してください
+          </span>
+
+        </div>
+
+        <div class="housing-result-grid">
+
+          <div class="housing-result-item">
+
+            <span>
+              住宅総額
+            </span>
+
+            <strong id="housingResultTotalCost">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              自己資金等
+            </span>
+
+            <strong id="housingResultOwnFunds">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              必要借入額
+            </span>
+
+            <strong id="housingResultLoanAmount">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              毎月返済額
+            </span>
+
+            <strong id="housingResultMonthlyPayment">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              ボーナス返済・年額
+            </span>
+
+            <strong id="housingResultAnnualBonus">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              年間返済額
+            </span>
+
+            <strong id="housingResultAnnualPayment">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              総返済額
+            </span>
+
+            <strong id="housingResultTotalPayment">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              総利息
+            </span>
+
+            <strong id="housingResultTotalInterest">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span id="housingBalanceAgeLabel">
+              65歳時点の残高
+            </span>
+
+            <strong id="housingResultBalanceAtAge">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              金利上昇時の毎月返済
+            </span>
+
+            <strong id="housingResultStressPayment">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              購入後の現金
+            </span>
+
+            <strong id="housingResultCashAfterPurchase">
+              ¥0
+            </strong>
+
+          </div>
+
+          <div class="housing-result-item">
+
+            <span>
+              最低現金との差
+            </span>
+
+            <strong id="housingResultCashDifference">
+              ¥0
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <label class="field housing-note-field">
+
+        <span>
+          メモ
+        </span>
+
+        <textarea
+          id="housingPlanNote"
+          rows="4"
+          maxlength="500"
+          placeholder="例：外構費は300万円を上限にする。"
+        ></textarea>
+
+      </label>
+
+      <div
+        class="validation-message hidden"
+        id="housingValidationMessage"
+      ></div>
+
+      <div class="housing-form-actions">
+
+        <button
+          class="danger-button hidden"
+          type="button"
+          id="deleteHousingPlanButton"
+        >
+          削除
+        </button>
+
+        <div class="housing-form-actions-right">
+
+          <button
+            class="secondary-button hidden"
+            type="button"
+            id="duplicateHousingPlanButton"
+          >
+            複製
+          </button>
+
+          <button
+            class="secondary-button"
+            type="button"
+            id="clearHousingPlanButton"
+          >
+            入力をクリア
+          </button>
+
+          <button
+            class="primary-button"
+            type="submit"
+          >
+            住宅プランを保存
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+    <!-- Simulation -->
+
+    <section
+      class="page"
+      id="page-simulation"
+    >
+
+      <div class="placeholder-page card">
+
+        <p class="eyebrow">
+          FUTURE SIMULATION
+        </p>
+
+        <h2>
+          将来キャッシュフロー
+        </h2>
+
+        <p>
+          住宅購入や登録したイベントを反映し、
+          65歳時点の資産や資金不足の時期を計算します。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Buckets -->
+
+    <section
+      class="page"
+      id="page-buckets"
+    >
+
+      <div class="placeholder-page card">
+
+        <p class="eyebrow">
+          PURPOSE BUCKETS
+        </p>
+
+        <h2>
+          目的別資金
+        </h2>
+
+        <p>
+          旅行・車・教育・住宅修繕などの資金を、
+          実際の口座を増やさず仮想的に分けて管理します。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Settings -->
+
+    <section
+      class="page"
+      id="page-settings"
+    >
+
+      <div class="page-intro">
+
+        <div>
+
+          <p class="eyebrow">
+            SETTINGS
+          </p>
+
+          <h2>
+            基本設定
+          </h2>
+
+          <p>
+            Homeや将来計算の基準を設定します。
+          </p>
+
+        </div>
+
+      </div>
+
+      <form
+        class="card settings-form"
+        id="settingsForm"
+      >
+
+        <div class="settings-row">
+
+          <div>
+
+            <h3>
+              目標金融資産
+            </h3>
+
+            <p>
+              Homeの進捗率に使用します。
+            </p>
+
+          </div>
+
+          <input
+            type="number"
+            id="targetAsset"
+            min="0"
+            step="1000000"
+          >
+
+        </div>
+
+        <div class="settings-row">
+
+          <div>
+
+            <h3>
+              月の最低生活費
+            </h3>
+
+            <p>
+              生活防衛資金の計算に使用します。
+            </p>
+
+          </div>
+
+          <input
+            type="number"
+            id="minimumMonthlyExpense"
+            min="0"
+            step="1000"
+          >
+
+        </div>
+
+        <div class="settings-row">
+
+          <div>
+
+            <h3>
+              生活防衛資金
+            </h3>
+
+            <p>
+              最低生活費の何か月分を確保するか設定します。
+            </p>
+
+          </div>
+
+          <select id="emergencyFundMonths">
+            <option value="1">1か月</option>
+            <option value="2">2か月</option>
+            <option value="3">3か月</option>
+            <option value="6">6か月</option>
+            <option value="12">12か月</option>
+          </select>
+
+        </div>
+
+        <div class="form-actions">
+
+          <button
+            class="primary-button"
+            type="submit"
+          >
+            設定を保存
+          </button>
+
+        </div>
+
+      </form>
+
+      <section class="card data-management">
+
+        <div>
+
+          <h3>
+            データ管理
+          </h3>
+
+          <p>
+            ブラウザのデータ消去に備えて、
+            定期的にバックアップしてください。
+          </p>
+
+        </div>
+
+        <div class="data-buttons">
+
+          <button
+            class="secondary-button"
+            type="button"
+            id="exportButton"
+          >
+            JSONを書き出す
+          </button>
+
+          <label class="secondary-button file-button">
+
+            JSONを読み込む
+
+            <input
+              type="file"
+              id="importInput"
+              accept=".json,application/json"
+            >
+
+          </label>
+
+          <button
+            class="danger-button"
+            type="button"
+            id="clearDataButton"
+          >
+            全データを初期化
+          </button>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+</div>
+
+<div
+  class="toast"
+  id="toast"
+>
+  保存しました
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
