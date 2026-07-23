@@ -1472,6 +1472,238 @@ textarea {
   flex-wrap: wrap;
 }
 
+/* Financial Engine / Cash Flow */
+
+.settings-section-title {
+  padding: 24px 22px 12px;
+  background: #f7f9fd;
+}
+
+.settings-section-title h3 {
+  margin: 5px 0 0;
+}
+
+.cashflow-control-card {
+  margin-bottom: 18px;
+}
+
+.cashflow-control-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.cashflow-control-grid select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fbfcfe;
+}
+
+.cashflow-warning {
+  margin-top: 15px;
+  padding: 13px 15px;
+  border: 1px solid #e5bf6c;
+  border-radius: 10px;
+  background: var(--yellow-soft);
+  color: #795812;
+  line-height: 1.7;
+}
+
+.cashflow-summary-grid {
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+  gap: 18px;
+}
+
+.cashflow-summary-card {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cashflow-summary-card span,
+.cashflow-alert-card span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.cashflow-summary-card strong {
+  margin-top: 9px;
+  font-size: 22px;
+}
+
+.cashflow-alert-grid {
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cashflow-alert-card {
+  min-height: 94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cashflow-alert-card strong {
+  margin-top: 8px;
+  font-size: 17px;
+}
+
+.cashflow-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(310px, 0.7fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.cashflow-table-card {
+  min-width: 0;
+}
+
+.cashflow-table-wrapper {
+  max-height: 720px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cashflow-table {
+  width: 100%;
+  min-width: 1250px;
+  border-collapse: collapse;
+}
+
+.cashflow-table th,
+.cashflow-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.cashflow-table th {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: #f1f5fb;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.cashflow-table th:first-child,
+.cashflow-table td:first-child {
+  position: sticky;
+  left: 0;
+  text-align: left;
+}
+
+.cashflow-table th:first-child {
+  z-index: 5;
+  background: #f1f5fb;
+}
+
+.cashflow-table td:first-child {
+  background: white;
+  font-weight: 700;
+}
+
+.cashflow-table-row {
+  cursor: pointer;
+}
+
+.cashflow-table-row:hover td {
+  background: var(--blue-soft);
+}
+
+.cashflow-table-row:hover td:first-child {
+  background: var(--blue-soft);
+}
+
+.cashflow-table-row.active td {
+  background: #dfeaff;
+}
+
+.cashflow-table-row.active td:first-child {
+  background: #dfeaff;
+}
+
+.cashflow-table-row.negative-cash td {
+  color: var(--red);
+}
+
+.cashflow-positive {
+  color: var(--green);
+}
+
+.cashflow-negative {
+  color: var(--red);
+}
+
+.cashflow-detail-card {
+  position: sticky;
+  top: 20px;
+}
+
+.cashflow-detail-empty {
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-align: center;
+}
+
+.cashflow-detail-section + .cashflow-detail-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.cashflow-detail-section h4 {
+  margin: 0 0 12px;
+}
+
+.cashflow-breakdown-list {
+  display: grid;
+  gap: 9px;
+}
+
+.cashflow-breakdown-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.cashflow-breakdown-row span {
+  color: var(--muted);
+}
+
+.cashflow-breakdown-row strong {
+  text-align: right;
+}
+
+.cashflow-year-row td {
+  background: #f8faff;
+  font-weight: 700;
+}
+
+.cashflow-year-row td:first-child {
+  background: #f8faff;
+}
+
 /* Responsive */
 
 @media (max-width: 1100px) {
@@ -1511,6 +1743,18 @@ textarea {
   .housing-plan-list {
     max-height: none;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+    .cashflow-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cashflow-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cashflow-detail-card {
+    position: static;
   }
 }
 
@@ -1576,6 +1820,14 @@ textarea {
 
   .housing-result-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+    .cashflow-control-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cashflow-alert-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1698,5 +1950,1434 @@ textarea {
 
   .housing-form-actions button {
     width: 100%;
+  }
+
+   .cashflow-control-grid,
+.cashflow-summary-grid {
+  grid-template-columns: 1fr;
+}
+
+}
+
+/* ==================================================
+   Housing Planner V2
+================================================== */
+.housing-plan-list-card,
+.housing-comparison-card {
+  margin-bottom: 18px;
+}
+
+.housing-plan-list {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.housing-plan-list .list-empty {
+  grid-column: 1 / -1;
+  padding: 28px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.housing-plan-list-item {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #fbfcff;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.housing-plan-list-item:hover {
+  border-color: #b9cafa;
+  box-shadow:
+    0 8px 20px rgba(47, 111, 237, 0.08);
+  transform: translateY(-1px);
+}
+
+.housing-plan-list-item.selected {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.housing-plan-list-item.comparing {
+  box-shadow:
+    inset 0 0 0 2px rgba(47, 111, 237, 0.22);
+}
+
+.housing-plan-list-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.housing-plan-list-item h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.housing-plan-list-item-subtitle {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.housing-plan-price {
+  display: block;
+  margin-top: 14px;
+  font-size: 21px;
+  letter-spacing: -0.03em;
+}
+
+.housing-plan-list-meta {
+  margin-top: 13px;
+  display: grid;
+  gap: 7px;
+}
+
+.housing-plan-list-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.housing-plan-list-meta-row strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.housing-plan-card-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.housing-plan-card-actions button {
+  flex: 1;
+  min-width: 90px;
+}
+
+/* Comparison */
+
+.housing-comparison-heading {
+  align-items: flex-start;
+}
+
+.housing-comparison-heading p:not(.eyebrow) {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.housing-comparison-empty {
+  padding: 30px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  background: #fbfcff;
+  color: var(--muted);
+  text-align: center;
+}
+
+.housing-comparison-area {
+  width: 100%;
+}
+
+.comparison-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.housing-comparison-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.housing-comparison-table th,
+.housing-comparison-table td {
+  padding: 13px 15px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.housing-comparison-table th:last-child,
+.housing-comparison-table td:last-child {
+  border-right: 0;
+}
+
+.housing-comparison-table tr:last-child td,
+.housing-comparison-table tr:last-child th {
+  border-bottom: 0;
+}
+
+.housing-comparison-table thead th {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+.housing-comparison-table thead th:first-child {
+  min-width: 190px;
+  text-align: left;
+}
+
+.housing-comparison-table tbody th {
+  width: 210px;
+  background: #f7f9fc;
+  color: var(--muted);
+  text-align: left;
+  font-size: 13px;
+}
+
+.housing-comparison-table tbody td {
+  min-width: 190px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.housing-comparison-table
+  .comparison-section-row
+  th {
+  padding: 10px 15px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.housing-comparison-plan-name {
+  display: block;
+  font-size: 15px;
+}
+
+.housing-comparison-product-name {
+  display: block;
+  margin-top: 4px;
+  color: #b8c5dc;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.housing-comparison-main-price {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.housing-comparison-difference {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.housing-comparison-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.housing-comparison-status.standard {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.housing-comparison-status.paid {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.housing-comparison-status.none {
+  background: #f0f2f6;
+  color: var(--muted);
+}
+
+.housing-comparison-feature-text {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: normal;
+}
+
+/* Editor layout */
+
+.housing-editor-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) 320px;
+  gap: 18px;
+  align-items: start;
+}
+
+.housing-plan-form {
+  padding: 0;
+  overflow: hidden;
+}
+
+.housing-form-header {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.housing-form-header h3 {
+  margin: 4px 0 0;
+}
+
+.housing-form-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.housing-plan-form .form-section:last-of-type {
+  border-bottom: 0;
+}
+
+.housing-basic-second-row {
+  margin-top: 15px;
+}
+
+/* Cost fields */
+
+.housing-cost-block {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #fbfcff;
+}
+
+.housing-cost-block:first-of-type {
+  margin-top: 0;
+}
+
+.housing-numbered-field > span,
+.housing-numbered-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.housing-numbered-field > span strong,
+.housing-numbered-title strong {
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  display: inline-grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.housing-numbered-field small {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.housing-option-cost-block {
+  padding: 0;
+  overflow: hidden;
+}
+
+.housing-option-heading {
+  padding: 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.housing-option-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.housing-option-table,
+.housing-feature-table {
+  overflow-x: auto;
+}
+
+.housing-option-table-header,
+.housing-option-row {
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 1.4fr)
+    minmax(120px, 0.8fr)
+    minmax(130px, 0.8fr)
+    minmax(170px, 1fr)
+    42px;
+  gap: 10px;
+  align-items: center;
+  min-width: 790px;
+}
+
+.housing-option-table-header {
+  padding: 10px 18px;
+  background: #f3f6fa;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.housing-option-row {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+}
+
+.housing-option-row:first-child {
+  border-top: 0;
+}
+
+.housing-option-row input,
+.housing-option-row select,
+.housing-feature-row input,
+.housing-feature-row select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+}
+
+.housing-option-row input:focus,
+.housing-option-row select:focus,
+.housing-feature-row input:focus,
+.housing-feature-row select:focus {
+  border-color: var(--blue);
+  box-shadow:
+    0 0 0 3px rgba(47, 111, 237, 0.1);
+}
+
+.housing-option-amount-wrap {
+  position: relative;
+}
+
+.housing-option-amount-wrap input {
+  padding-right: 30px;
+  text-align: right;
+}
+
+.housing-option-amount-wrap span {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  color: var(--muted);
+  font-size: 11px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.housing-row-delete-button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid #f0caca;
+  border-radius: 10px;
+  background: var(--red-soft);
+  color: var(--red);
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.housing-row-delete-button:hover {
+  border-color: var(--red);
+}
+
+.housing-option-empty {
+  margin: 14px 18px;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+.housing-subtotal-row {
+  padding: 16px 18px;
+  border-top: 1px solid var(--border);
+  background: #f7f9fc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.housing-subtotal-row span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.housing-subtotal-row strong {
+  font-size: 18px;
+}
+
+.housing-tax-rate-row {
+  margin-top: 15px;
+  max-width: 260px;
+}
+
+/* Calculation boxes */
+
+.housing-calculation-box {
+  margin-top: 17px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #f7f9fc;
+  overflow: hidden;
+}
+
+.housing-calculation-box > div {
+  padding: 13px 17px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.housing-calculation-box > div:last-child {
+  border-bottom: 0;
+}
+
+.housing-calculation-box span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.housing-calculation-box strong {
+  font-size: 15px;
+}
+
+.housing-calculation-box
+  .housing-calculation-total {
+  background: var(--blue-soft);
+}
+
+.housing-calculation-box
+  .housing-calculation-total span,
+.housing-calculation-box
+  .housing-calculation-total strong {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.housing-calculation-box
+  .housing-calculation-total strong {
+  font-size: 19px;
+}
+
+.housing-calculation-box.compact {
+  margin-left: auto;
+  max-width: 500px;
+}
+
+.housing-grand-total-section {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      #111c33,
+      #203b68
+    );
+}
+
+.housing-grand-total-box {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.housing-grand-total-box p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.housing-grand-total-box small {
+  display: block;
+  margin-top: 5px;
+  color: #bdc7d7;
+}
+
+.housing-grand-total-box > strong {
+  font-size: clamp(27px, 4vw, 38px);
+  letter-spacing: -0.04em;
+}
+
+/* Standard features */
+
+.housing-feature-table-header,
+.housing-feature-row {
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 1.1fr)
+    minmax(130px, 0.7fr)
+    minmax(230px, 1.5fr)
+    42px;
+  gap: 10px;
+  align-items: center;
+  min-width: 720px;
+}
+
+.housing-feature-table-header {
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 11px 11px 0 0;
+  background: #f3f6fa;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.housing-feature-list {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-radius: 0 0 11px 11px;
+}
+
+.housing-feature-row {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.housing-feature-row:first-child {
+  border-top: 0;
+}
+
+/* Required cash */
+
+.housing-required-funds-box {
+  margin-top: 15px;
+  padding: 18px;
+  border: 1px solid #bdd0ff;
+  border-radius: 15px;
+  background: var(--blue-soft);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 20px;
+  align-items: center;
+}
+
+.housing-required-funds-box > span {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.housing-required-funds-box > strong {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  color: var(--blue);
+  font-size: 24px;
+}
+
+.housing-required-funds-box small {
+  color: var(--muted);
+}
+
+/* Loan and form footer */
+
+.housing-auto-loan-field {
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border: 1px solid #bdd0ff;
+  border-radius: 12px;
+  background: var(--blue-soft);
+}
+
+.housing-save-area {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  background: #f7f9fc;
+}
+
+.housing-save-button {
+  width: 100%;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+/* Result sidebar */
+
+.housing-result-column {
+  display: grid;
+  gap: 18px;
+  position: sticky;
+  top: 18px;
+}
+
+.housing-result-column .card {
+  padding: 20px;
+}
+
+.housing-result-column h3 {
+  margin: 4px 0 17px;
+}
+
+.housing-summary-main {
+  margin-bottom: 12px;
+  padding: 17px;
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      135deg,
+      #111c33,
+      #203b68
+    );
+  color: white;
+}
+
+.housing-summary-main span,
+.housing-summary-main strong {
+  display: block;
+}
+
+.housing-summary-main span {
+  color: #bdc7d7;
+  font-size: 12px;
+}
+
+.housing-summary-main strong {
+  margin-top: 6px;
+  font-size: 26px;
+  letter-spacing: -0.04em;
+}
+
+.housing-result-column .summary-row {
+  padding: 12px 0;
+  gap: 12px;
+}
+
+.housing-result-column .summary-row span {
+  font-size: 12px;
+}
+
+.housing-result-column .summary-row strong {
+  text-align: right;
+  font-size: 13px;
+}
+
+.housing-payment-highlight {
+  margin-bottom: 10px;
+  padding: 17px;
+  border-radius: 14px;
+  background: var(--blue-soft);
+}
+
+.housing-payment-highlight span,
+.housing-payment-highlight strong {
+  display: block;
+}
+
+.housing-payment-highlight span {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.housing-payment-highlight strong {
+  margin-top: 5px;
+  color: var(--blue);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.housing-cash-judgement {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 11px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.housing-cash-judgement.positive {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.housing-cash-judgement.negative {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.housing-cash-judgement.neutral {
+  background: #f0f2f6;
+  color: var(--muted);
+}
+
+/* Category badges */
+
+.housing-category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f0f3f8;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* Disabled fields */
+
+#housingLoanAmount:disabled {
+  border-color: #dce4f4;
+  background: #eef3fb;
+  color: var(--blue);
+  font-weight: 800;
+  cursor: not-allowed;
+}
+
+/* ==================================================
+   Housing Planner V2 Responsive
+================================================== */
+
+@media (max-width: 1250px) {
+  .housing-editor-layout {
+    grid-template-columns:
+      minmax(0, 1fr) 290px;
+  }
+
+  .housing-result-column .card {
+    padding: 17px;
+  }
+
+  .housing-result-column .summary-row {
+    display: grid;
+    gap: 4px;
+  }
+
+  .housing-result-column
+    .summary-row strong {
+    text-align: left;
+  }
+}
+
+@media (max-width: 1100px) {
+  .housing-editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .housing-result-column {
+    position: static;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .housing-option-summary-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 820px) {
+  .housing-plan-list {
+    grid-template-columns: 1fr;
+  }
+
+  .housing-form-header,
+  .housing-option-heading {
+    display: grid;
+  }
+
+  .housing-form-actions {
+    justify-content: flex-start;
+  }
+
+  .housing-result-column {
+    grid-template-columns: 1fr;
+  }
+
+  .housing-option-summary-card {
+    grid-column: auto;
+  }
+
+  .housing-grand-total-box {
+    align-items: flex-start;
+  }
+
+  .housing-grand-total-box > strong {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 600px) {
+  .housing-plan-list-card,
+  .housing-comparison-card {
+    padding: 17px;
+  }
+
+  .housing-form-header {
+    padding: 19px 17px;
+  }
+
+  .housing-plan-form .form-section {
+    padding: 20px 17px;
+  }
+
+  .housing-form-actions {
+    width: 100%;
+  }
+
+  .housing-form-actions button {
+    flex: 1;
+  }
+
+  .housing-option-heading {
+    padding: 16px;
+  }
+
+  .housing-option-heading button {
+    width: 100%;
+  }
+
+  .housing-option-table-header,
+  .housing-option-row {
+    min-width: 720px;
+  }
+
+  .housing-feature-table-header,
+  .housing-feature-row {
+    min-width: 650px;
+  }
+
+  .housing-grand-total-box {
+    display: grid;
+  }
+
+  .housing-required-funds-box {
+    grid-template-columns: 1fr;
+  }
+
+  .housing-required-funds-box > strong {
+    grid-row: auto;
+    grid-column: auto;
+    margin-top: 5px;
+  }
+
+  .housing-save-area {
+    padding: 17px;
+  }
+
+  .housing-result-column .card {
+    padding: 18px;
+  }
+
+  .housing-comparison-heading {
+    display: grid;
+  }
+
+  .housing-comparison-heading button {
+    width: 100%;
+  }
+}
+/* =========================================
+   住宅プラン画面の固定表示を完全に解除
+========================================= */
+
+.housing-plan-list-card,
+.housing-result-column {
+  position: static !important;
+  top: auto !important;
+}
+
+.housing-plan-list {
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* ------------------------------
+   Simulation
+------------------------------ */
+
+.simulation-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.simulation-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-mark {
+  display: inline-block;
+  width: 22px;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.legend-mark.asset-cash {
+  background: var(--green);
+}
+
+.legend-mark.asset-investment {
+  background: var(--blue);
+}
+
+.legend-mark.asset-net-worth {
+  background: var(--purple);
+}
+
+#simulationCashLine,
+#simulationInvestmentLine,
+#simulationNetWorthLine,
+#simulationLoanLine {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#simulationCashLine {
+  stroke: var(--green);
+}
+
+#simulationInvestmentLine {
+  stroke: var(--blue);
+}
+
+#simulationNetWorthLine {
+  stroke: var(--purple);
+}
+
+#simulationLoanLine {
+  stroke: var(--red);
+}
+
+.simulation-danger-row td {
+  color: var(--red);
+  background: rgba(220, 38, 38, 0.05);
+}
+
+
+/* ------------------------------
+   Simulation chart hover
+------------------------------ */
+
+.simulation-chart-hover-area {
+  position: relative;
+}
+
+.simulation-chart-hover-area svg {
+  cursor: crosshair;
+}
+
+.simulation-hover-line {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  pointer-events: none;
+}
+
+.simulation-hover-point {
+  stroke: var(--surface);
+  stroke-width: 3;
+  pointer-events: none;
+}
+
+.simulation-hover-point.cash-point {
+  fill: var(--green);
+}
+
+.simulation-hover-point.investment-point {
+  fill: var(--blue);
+}
+
+.simulation-hover-point.net-worth-point {
+  fill: var(--orange);
+}
+
+.simulation-hover-point.loan-point {
+  fill: var(--red);
+}
+
+.simulation-chart-tooltip {
+  position: absolute;
+  z-index: 100;
+  width: min(300px, calc(100% - 16px));
+  padding: 16px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+
+  background-color: #ffffff;
+  background-image: none;
+  opacity: 1;
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.24),
+    0 4px 12px rgba(15, 23, 42, 0.14);
+
+  color: #172033;
+  pointer-events: none;
+}
+
+.simulation-tooltip-title {
+  margin: -2px -2px 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dbe2ea;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-title {
+  border-bottom-color: #475569;
+}
+
+.simulation-tooltip-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 18px;
+  font-size: 13px;
+}
+
+.simulation-tooltip-grid > span,
+.simulation-tooltip-grid > strong {
+  padding: 7px 0;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.simulation-tooltip-grid > span:nth-last-child(-n + 2),
+.simulation-tooltip-grid > strong:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-grid > span,
+[data-theme="dark"]
+.simulation-tooltip-grid > strong {
+  border-bottom-color: #334155;
+}
+
+.simulation-tooltip-grid span {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.simulation-tooltip-grid strong {
+  color: #172033;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-grid span {
+  color: #94a3b8;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-grid strong {
+  color: #f8fafc;
+}
+
+.simulation-tooltip-highlight,
+.simulation-tooltip-warning {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.simulation-tooltip-highlight {
+  border: 1px solid #86efac;
+  color: #166534;
+  background-color: #f0fdf4;
+}
+
+.simulation-tooltip-warning {
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  background-color: #fef2f2;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-highlight {
+  border-color: #166534;
+  color: #bbf7d0;
+  background-color: #14532d;
+}
+
+[data-theme="dark"]
+.simulation-tooltip-warning {
+  border-color: #991b1b;
+  color: #fecaca;
+  background-color: #7f1d1d;
+}
+
+@media (max-width: 640px) {
+  .simulation-chart-tooltip {
+    width: min(250px, calc(100% - 16px));
+  }
+
+  .simulation-tooltip-grid {
+    font-size: 12px;
+  }
+}
+
+[data-theme="dark"]
+.simulation-chart-tooltip {
+  border-color: #475569;
+  background-color: #172033;
+  color: #f8fafc;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.48),
+    0 4px 12px rgba(0, 0, 0, 0.32);
+}
+
+/* ------------------------------
+   Simulation risk and turning points
+------------------------------ */
+
+.simulation-analysis-section {
+  margin-top: 20px;
+}
+
+.simulation-risk-overview {
+  overflow: hidden;
+}
+
+.simulation-risk-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.simulation-risk-badge.risk-safe {
+  color: #166534;
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.simulation-risk-badge.risk-notice {
+  color: #854d0e;
+  border-color: #fde047;
+  background: #fefce8;
+}
+
+.simulation-risk-badge.risk-caution {
+  color: #9a3412;
+  border-color: #fdba74;
+  background: #fff7ed;
+}
+
+.simulation-risk-badge.risk-danger,
+.simulation-risk-badge.risk-critical,
+.simulation-risk-badge.risk-depleted {
+  color: #991b1b;
+  border-color: #fca5a5;
+  background: #fef2f2;
+}
+
+.simulation-risk-primary {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.simulation-risk-primary > span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.simulation-risk-primary > strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.simulation-risk-primary h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.simulation-risk-primary p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.simulation-risk-metrics {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.simulation-risk-metric {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.simulation-risk-metric span,
+.simulation-risk-metric small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.simulation-risk-metric strong {
+  display: block;
+  margin: 6px 0 4px;
+  font-size: 15px;
+}
+
+.simulation-turning-section {
+  margin-top: 20px;
+}
+
+.simulation-turning-list {
+  display: grid;
+  gap: 12px;
+}
+
+.simulation-turning-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 13px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.simulation-turning-item.turning-positive {
+  border-left-color: var(--green);
+}
+
+.simulation-turning-item.turning-warning,
+.simulation-turning-item.turning-major {
+  border-left-color: var(--orange);
+}
+
+.simulation-turning-item.turning-critical {
+  border-left-color: var(--red);
+}
+
+.simulation-turning-item.turning-info {
+  border-left-color: var(--blue);
+}
+
+.simulation-turning-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--background);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.simulation-turning-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.simulation-turning-content h4 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.simulation-turning-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.simulation-turning-value {
+  display: inline-block;
+  margin-top: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.simulation-turning-empty {
+  padding: 24px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .simulation-risk-metrics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .simulation-risk-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .simulation-risk-primary > strong {
+    font-size: 18px;
   }
 }
